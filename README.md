@@ -1,2 +1,2 @@
-# online-scheduler
-Toy job scheduling
+# Online-scheduler
+Toy job scheduling for online coding website.

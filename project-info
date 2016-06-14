@@ -1,0 +1,6 @@
+Job Definition:
+    JobId
+    JobType
+    JobSubmissionTime
+    JobData
+    JobState
