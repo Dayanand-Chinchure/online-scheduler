@@ -1,0 +1,118 @@
+                        Project Details
+--------------------------------------------------------------
+
+Job description :
+
+JobId
+JobType
+JobSubmissionTime
+JobData
+JobState
+
+JobTypes description :
+
+JobType
+Handler program
+Expected time
+Maximum file size
+
+JobState description :
+
+Arrived from user
+Waiting
+Send to handler
+Arrived from handler
+Handler timeout
+Send to user
+Acknowlege from user
+
+--------------------------------------------------------------
+
+
+
+--------------------------------------------------------------
+
+                        UI to Scheduler
+
+
+<cmd> description :
+
+[1] submitjob :: <JobType> <Problem ID> <Job Data File> -> JobId
+
+[2] getjobstatus :: <JobId> -> JobStatus
+
+[3] getalljobId :: -> [ JobID ]
+
+[4] getproblems :: -> [ Problem ID ]
+
+
+Response from scheduler :
+
+[1] submitjob
+
+        Success : JobId
+        Failure : Job type wrong
+                  Job file error
+                  Job file maximum size exceeded
+                  Problem Id error
+
+
+[2] getjobstatus
+
+        Success : Job status
+        Failure : JobId error
+
+
+[3] getalljobsID
+
+        Success : [ Job ID ]
+        Failure : []
+
+[4] getproblemid
+
+        Success : [ problem ]
+        Failure : []
+
+
+Problem description :
+
+Problem ID
+Problem text
+Problem test data
+
+---------------------------------------------------------------
+
+
+---------------------------------------------------------------
+
+                        Scheduler to Handler
+
+
+[1] submitjob :: <JobId> <Job Data>
+
+[2] initHandler :: <JobType> <Problem Text Data>
+                   <Max Allowed Time> <Shared Directory Path>
+
+[3] deletejobdata :: JobId
+
+---------------------------------------------------------------
+
+
+---------------------------------------------------------------
+
+                        Handler to Scheduler
+
+[1] takejobresult :: <JobID> <result>
+
+
+Results
+        Success : JobId
+        Failure : JobID , Reason , Job Output (if any)
+
+Reason description :
+
+timeout
+space exceeded
+output does not match
+
+---------------------------------------------------------------

@@ -1,0 +1,5 @@
+stat
+
+you can write your commands here. Only 1st line will be considered for command input. Rest of the lines are ignored.
+Valid commands are: 
+  pause, resume, stop, reconf, stat
